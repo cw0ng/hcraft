@@ -2,11 +2,64 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
+import styled from '@emotion/styled'
+import "./reset.css"
+import { ThemeProvider } from 'emotion-theming'
+import Sidebar from './sidebar';
 
-import Header from "./header"
-import "./layout.css"
+
+
+const theme = {
+  border: '4px solid #333',
+  borderRadius: '1.5em',
+  greyLine: '1px solid #ccc',
+  black: '#333',
+};
+
+
+const Page = styled.div`
+  min-height: 96vh;
+  border: ${p => p.theme.border};
+  margin: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom-right-radius: ${p => p.theme.borderRadius};
+  border-top-right-radius: ${p => p.theme.borderRadius};
+  main {
+    margin: 2em;
+    flex-grow: 2;
+    h1,
+    p,
+    ul {
+      max-width: 36em;
+      margin: 1em auto;
+    }
+    .page-title {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 0.5em;
+    }
+  }
+`;
+
+const Footer = styled.footer`
+  margin: -1em 0 0 1.45em;
+  font-size: 66%;
+  text-transform: uppercase;
+  a {
+    text-decoration: none;
+    color: #ccc;
+    &:hover {
+      color: #aaa;
+    }
+  }
+`;
+
+
 
 const Layout = ({ children }) => (
+  
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -17,32 +70,26 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
-      <>
+    render={data => (    
+      <ThemeProvider theme={theme}>
         <Global
           styles={css`
             background: blue;
           `}
         />
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </>
+        <Page>
+            <main>{children}</main>
+            <Sidebar />
+          </Page>
+          <Footer>
+            <a href="http://www.corinawong.com" target="_blank">
+              Site by
+            </a>
+          </Footer>
+      </ThemeProvider>
     )}
   />
+  
 )
 
 Layout.propTypes = {
