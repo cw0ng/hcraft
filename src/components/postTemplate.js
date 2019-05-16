@@ -24,7 +24,6 @@ const PostTemplate = ({ data: { mdx: post } }) => {
   return (
     <Layout>
       <PageTitle title={post.frontmatter.title} />
-
       <p>
         posted by {post.frontmatter.author} on {post.frontmatter.date}
       </p>

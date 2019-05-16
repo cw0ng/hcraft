@@ -27,11 +27,12 @@ const Page = styled.div`
   main {
     margin: 2em;
     flex-grow: 2;
-    h1,
-    p,
-    ul {
+    & > * {
       max-width: 36em;
       margin: 1em auto;
+    }
+    ul {
+      padding: 1em 2em;
     }
   }
 `
@@ -67,7 +68,11 @@ const Layout = ({ children }) => (
             }
           `}
         >
-          <a href="http://www.corinawong.com" target="_blank">
+          <a
+            href="http://www.corinawong.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Site by
           </a>
         </footer>
