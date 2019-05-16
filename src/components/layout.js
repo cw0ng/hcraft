@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import { Global, css } from "@emotion/core"
 
 import Header from "./header"
 import "./layout.css"
@@ -25,6 +26,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <Global
+          styles={css`
+            background: blue;
+          `}
+        />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{

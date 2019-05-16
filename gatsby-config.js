@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Home Craft`,
+    description: `A small, residential drafting and design firm based in Kelowna, BC, offering services primarily in the Okanagan and Southern Ontario. We focus on contemporary style homes where your needs and desires are combined with a function forward design principle. Our work is primarily new home design, additions, and renovations.`,
+    author: `Chris Skomorowski`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
