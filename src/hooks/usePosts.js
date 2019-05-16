@@ -20,7 +20,7 @@ const usePosts = () => {
     title: post.frontmatter.title,
     author: post.frontmatter.author,
     slug: post.frontmatter.slug,
-    excerpt: post.frontmatter.excerpt,
+    excerpt: post.excerpt,
   }))
 }
 

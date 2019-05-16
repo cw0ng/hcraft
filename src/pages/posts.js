@@ -1,18 +1,19 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Global, css } from "@emotion/core"
+import { css } from "@emotion/core"
 import usePosts from "../hooks/usePosts"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
+import PostPreview from "../components/postPreview"
 
 export default () => {
   const posts = usePosts()
-  console.log("posts", posts)
 
   return (
     <Layout>
-      Posts
+      <SEO title="Posts" />
+      <h1>Posts</h1>
       {posts.map(post => (
-        <pre>{JSON.stringify(post, null, 2)}</pre>
+        <PostPreview key={post.slug} post={post} />
       ))}
     </Layout>
   )
