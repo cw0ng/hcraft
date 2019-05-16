@@ -1,11 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import { Global, css, jsx } from "@emotion/core"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
-import "./reset.css"
 import { ThemeProvider } from "emotion-theming"
 import Sidebar from "./sidebar"
+import "../styles/reset.css"
+import "../styles/typography.css"
 
 const theme = {
   border: "4px solid #333",
@@ -31,11 +32,6 @@ const Page = styled.div`
     ul {
       max-width: 36em;
       margin: 1em auto;
-    }
-    .page-title {
-      text-align: center;
-      font-size: 2.5em;
-      margin-top: 0.5em;
     }
   }
 `

@@ -4,6 +4,7 @@ import Layout from "./layout"
 import SEO from "./seo"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
+import PageTitle from "./pageTitle"
 
 export const query = graphql`
   query($slug: String!) {
@@ -24,7 +25,8 @@ const PostTemplate = ({ data: { mdx: post } }) => {
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
-      <h1>{post.frontmatter.title}</h1>
+      <PageTitle title={post.frontmatter.title} />
+
       <p>
         posted by {post.frontmatter.author} on {post.frontmatter.date}
       </p>

@@ -4,6 +4,7 @@ import usePosts from "../hooks/usePosts"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostPreview from "../components/postPreview"
+import PageTitle from "../components/pageTitle"
 
 export default () => {
   const posts = usePosts()
@@ -11,7 +12,8 @@ export default () => {
   return (
     <Layout>
       <SEO title="Posts" />
-      <h1>Posts</h1>
+
+      <PageTitle title="Posts" />
       {posts.map(post => (
         <PostPreview key={post.slug} post={post} />
       ))}
