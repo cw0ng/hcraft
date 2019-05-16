@@ -1,21 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import { Global, css } from "@emotion/core"
-import styled from '@emotion/styled'
+import { Global, css, jsx } from "@emotion/core"
+import styled from "@emotion/styled"
 import "./reset.css"
-import { ThemeProvider } from 'emotion-theming'
-import Sidebar from './sidebar';
-
-
+import { ThemeProvider } from "emotion-theming"
+import Sidebar from "./sidebar"
 
 const theme = {
-  border: '4px solid #333',
-  borderRadius: '1.5em',
-  greyLine: '1px solid #ccc',
-  black: '#333',
-};
-
+  border: "4px solid #333",
+  borderRadius: "1.5em",
+  greyLine: "1px solid #ccc",
+  black: "#333",
+}
 
 const Page = styled.div`
   min-height: 96vh;
@@ -41,25 +38,9 @@ const Page = styled.div`
       margin-top: 0.5em;
     }
   }
-`;
-
-const Footer = styled.footer`
-  margin: -1em 0 0 1.45em;
-  font-size: 66%;
-  text-transform: uppercase;
-  a {
-    text-decoration: none;
-    color: #ccc;
-    &:hover {
-      color: #aaa;
-    }
-  }
-`;
-
-
+`
 
 const Layout = ({ children }) => (
-  
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -70,26 +51,33 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (    
+    render={data => (
       <ThemeProvider theme={theme}>
-        <Global
-          styles={css`
-            background: blue;
-          `}
-        />
         <Page>
-            <main>{children}</main>
-            <Sidebar />
-          </Page>
-          <Footer>
-            <a href="http://www.corinawong.com" target="_blank">
-              Site by
-            </a>
-          </Footer>
+          <main>{children}</main>
+          <Sidebar />
+        </Page>
+        <footer
+          css={css`
+            margin: -1em 0 0 1.45em;
+            font-size: 66%;
+            text-transform: uppercase;
+            a {
+              text-decoration: none;
+              color: #ccc;
+              &:hover {
+                color: #aaa;
+              }
+            }
+          `}
+        >
+          <a href="http://www.corinawong.com" target="_blank">
+            Site by
+          </a>
+        </footer>
       </ThemeProvider>
     )}
   />
-  
 )
 
 Layout.propTypes = {
