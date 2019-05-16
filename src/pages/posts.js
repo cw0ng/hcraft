@@ -2,7 +2,6 @@ import React from "react"
 import { css } from "@emotion/core"
 import usePosts from "../hooks/usePosts"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import PostPreview from "../components/postPreview"
 import PageTitle from "../components/pageTitle"
 
@@ -11,8 +10,6 @@ export default () => {
 
   return (
     <Layout>
-      <SEO title="Posts" />
-
       <PageTitle title="Posts" />
       {posts.map(post => (
         <PostPreview key={post.slug} post={post} />

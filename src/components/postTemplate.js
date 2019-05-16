@@ -1,7 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
 import Layout from "./layout"
-import SEO from "./seo"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
 import PageTitle from "./pageTitle"
@@ -24,7 +23,6 @@ export const query = graphql`
 const PostTemplate = ({ data: { mdx: post } }) => {
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
       <PageTitle title={post.frontmatter.title} />
 
       <p>

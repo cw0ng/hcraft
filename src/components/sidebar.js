@@ -1,7 +1,7 @@
 import { Link, graphql, StaticQuery } from "gatsby"
 import React from "react"
 import Img from "gatsby-image"
-import styled from '@emotion/styled'
+import styled from "@emotion/styled"
 
 const Sidebar = styled.section`
   display: flex;
@@ -69,9 +69,7 @@ export default () => {
     //   render={data => (
     <Sidebar>
       <header>
-        <a href="/">
-          {/* <Img fluid={data.logo.childImageSharp.fluid} /> */}
-        </a>
+        <a href="/">{/* <Img fluid={data.logo.childImageSharp.fluid} /> */}</a>
       </header>
       <div>
         <p>Chris Skomorowski</p>
@@ -86,7 +84,7 @@ export default () => {
       <nav>
         <ul>
           <li>
-            <Link to="/blog">Blog</Link>
+            <Link to="/posts">Posts</Link>
           </li>
           <li>
             <Link to="/work">Work</Link>
