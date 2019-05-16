@@ -11,7 +11,7 @@ export const query = graphql`
       frontmatter {
         title
         author
-        date
+        date(formatString: "MMMM DD, YYYY")
       }
       code {
         body
@@ -25,8 +25,9 @@ const PostTemplate = ({ data: { mdx: post } }) => {
     <Layout>
       <SEO title={post.frontmatter.title} />
       <h1>{post.frontmatter.title}</h1>
-      <p>posted by {post.frontmatter.author}</p>
-      <p>on {post.frontmatter.date}</p>
+      <p>
+        posted by {post.frontmatter.author} on {post.frontmatter.date}
+      </p>
       <MDXRenderer>{post.code.body}</MDXRenderer>
     </Layout>
   )
