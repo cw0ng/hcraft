@@ -87,7 +87,7 @@ export default () => {
             <Link to="/posts">Posts</Link>
           </li>
           <li>
-            <Link to="/work">Work</Link>
+            <Link to="/portfolio">Portfolio</Link>
           </li>
           <li>
             <Link to="/services">Services</Link>
