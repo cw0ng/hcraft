@@ -4,7 +4,10 @@ const usePosts = () => {
   const data = useStaticQuery(graphql`
     query {
       allFile(
-        filter: { sourceInstanceName: { eq: "posts" } }
+        filter: {
+          sourceInstanceName: { eq: "posts" }
+          extension: { eq: "mdx" }
+        }
         sort: { fields: [relativePath], order: DESC }
       ) {
         nodes {

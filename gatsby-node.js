@@ -4,7 +4,7 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     query {
-      allFile {
+      allFile(filter: { extension: { eq: "mdx" } }) {
         nodes {
           sourceInstanceName
           childMdx {
