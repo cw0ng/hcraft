@@ -11,6 +11,7 @@ const usePosts = () => {
           sourceInstanceName
           relativePath
           childMdx {
+            excerpt(pruneLength: 280)
             frontmatter {
               title
               slug
@@ -23,7 +24,6 @@ const usePosts = () => {
 
   return data.allFile.nodes.map(post => ({
     title: post.childMdx.frontmatter.title,
-    author: post.childMdx.frontmatter.author,
     slug: post.childMdx.frontmatter.slug,
     excerpt: post.childMdx.excerpt,
   }))
