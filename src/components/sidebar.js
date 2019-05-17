@@ -1,26 +1,26 @@
-import { Link, graphql, StaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React from "react"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
+import { useStaticQuery, graphql } from "gatsby"
 
 const Sidebar = styled.section`
   display: flex;
   flex-direction: column;
   min-width: 170px;
+  margin-bottom: 10px;
   text-align: center;
   border-left: ${p => p.theme.border};
   border-bottom: ${p => p.theme.border};
   border-bottom-left-radius: ${p => p.theme.borderRadius};
-  header {
-    padding: 1em;
-    border-bottom: ${p => p.theme.border};
-  }
-  & > div {
-    padding: 1em;
+  div {
+    padding: 1.3em 1em 1em;
     border-bottom: ${p => p.theme.border};
     font-size: 80%;
-    line-height: 1;
-    p:nth-child(-n + 2) {
+    p {
+      margin: 0.25em 0;
+    }
+    p:nth-of-type(-n + 2) {
       font-weight: bold;
     }
     p:nth-of-type(2) {
@@ -34,6 +34,16 @@ const Sidebar = styled.section`
     color: ${p => p.theme.black};
     &:hover {
       border-bottom: ${p => p.theme.greyLine};
+    }
+  }
+  header {
+    padding: 1em;
+    border-bottom: ${p => p.theme.border};
+    div {
+      border: none;
+    }
+    a:hover {
+      border: none;
     }
   }
   ul {
@@ -53,23 +63,24 @@ const Sidebar = styled.section`
 `
 
 export default () => {
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { eq: "homecraft-logo.png" }) {
+        childImageSharp {
+          fixed(width: 125) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
   return (
-    // <StaticQuery
-    //   query={graphql`
-    //     query {
-    //       logo: file(relativePath: { eq: "homecraft-logo.png" }) {
-    //         childImageSharp {
-    //           fluid(maxWidth: 300) {
-    //             ...GatsbyImageSharpFluid
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `}
-    //   render={data => (
     <Sidebar>
       <header>
-        <a href="/">{/* <Img fluid={data.logo.childImageSharp.fluid} /> */}</a>
+        <Link to="/">
+          <Img fixed={logo.childImageSharp.fixed} />
+        </Link>
       </header>
       <div>
         <p>Chris Skomorowski</p>
@@ -98,7 +109,5 @@ export default () => {
         </ul>
       </nav>
     </Sidebar>
-    //     )}
-    //   />
   )
 }
