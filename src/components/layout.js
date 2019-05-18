@@ -29,7 +29,7 @@ const Page = styled.div`
     margin: 2em;
     flex-grow: 2;
     ul {
-      padding: 1em 2em;
+      padding: 0.25em 2em 0;
     }
     a {
       text-decoration: none;
@@ -52,10 +52,14 @@ const Page = styled.div`
     }
   }
   .content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     p {
       margin: 1em 0;
+    }
+    .gatsby-resp-image-link {
+      border: none;
+      margin: 2em 0;
     }
   }
   .small-text {

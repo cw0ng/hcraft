@@ -24,7 +24,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
       <article>
         <PageTitle title={post.frontmatter.title} />
         <p
-          className="small-link content"
+          className="small-text content"
           style={{ textAlign: "center", marginBottom: "2rem" }}
         >
           Posted by Chris on {post.frontmatter.date}
