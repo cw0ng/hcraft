@@ -28,7 +28,8 @@ const Page = styled.div`
   main {
     margin: 2em;
     flex-grow: 2;
-    ul {
+    ul,
+    ol {
       padding: 0.25em 2em 0;
     }
     a {
@@ -38,6 +39,20 @@ const Page = styled.div`
       &:hover {
         color: #333;
       }
+    }
+    /* for markdown pages */
+    & > p,
+    & > ul,
+    & > ol {
+      margin: 1em auto;
+      max-width: 700px;
+    }
+  }
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    p {
+      margin: 1em 0;
     }
   }
   .title-link {
@@ -49,13 +64,6 @@ const Page = styled.div`
     margin-bottom: 1.75rem;
     &:hover {
       color: ${p => p.theme.blue};
-    }
-  }
-  .content {
-    max-width: 700px;
-    margin: 0 auto;
-    p {
-      margin: 1em 0;
     }
   }
   .gatsby-resp-image-link {
