@@ -11,7 +11,7 @@ const PageTitle = ({ title }) => {
         css={css`
           text-align: center;
           font-size: 2.5em;
-          margin-top: 0.5em;
+          margin: 0.5em 0 0;
         `}
       >
         {title}

@@ -12,6 +12,8 @@ const theme = {
   borderRadius: "1.5em",
   greyLine: "1px solid #ccc",
   black: "#333",
+  grey: "#ccc",
+  blue: "#466ee7",
 }
 
 const Page = styled.div`
@@ -26,13 +28,42 @@ const Page = styled.div`
   main {
     margin: 2em;
     flex-grow: 2;
-    /* & > * {
-      max-width: 36em;
-      margin: 1em auto;
-    } */
     ul {
       padding: 1em 2em;
     }
+    a {
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      color: ${p => p.theme.blue};
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+  .title-link {
+    border-bottom: ${p => p.theme.border};
+    border-width: 3px;
+    color: ${p => p.theme.black};
+    line-height: 1;
+    font-size: 175%;
+    margin-bottom: 1.75rem;
+    &:hover {
+      color: ${p => p.theme.blue};
+    }
+  }
+  .content {
+    max-width: 600px;
+    margin: 0 auto;
+    p {
+      margin: 1em 0;
+    }
+  }
+  .small-text {
+    color: #666;
+    font-size: 80%;
+  }
+  .small-link {
+    font-size: 80%;
   }
 `
 

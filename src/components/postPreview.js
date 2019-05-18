@@ -1,43 +1,34 @@
 import React from "react"
-import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
+const Container = styled.article`
+  margin: 3.25em auto 4em !important;
+  a:first-of-type {
+    text-decoration: none;
+    &:hover .title-link {
+      color: ${p => p.theme.blue};
+    }
+  }
+  p {
+    margin-bottom: 0.25rem !important;
+  }
+`
+
 const PostPreview = ({ post }) => {
   return (
-    <article
-      css={css`
-        max-width: 900px;
-        margin: 1em auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-      `}
-    >
-      <div
-        css={css`
-          flex: 1;
-        `}
-      >
-        <Link to={`/posts/${post.slug}`}>
-          <Img fluid={post.image} alt={post.imageAlt} />
-        </Link>
-      </div>
+    <Container className="content">
+      <Link to={`/posts/${post.slug}`}>
+        <h1 className="title-link">{post.title}</h1>
+        <Img fluid={post.image} alt={post.imageAlt} />
+      </Link>
 
-      <div
-        css={css`
-          flex: 1;
-          margin: 1em;
-        `}
-      >
-        <h1>
-          <Link to={`/posts/${post.slug}`}> {post.title}</Link>
-        </h1>
-        <p>{post.excerpt}</p>
-        <Link to={`/posts/${post.slug}`}>Read this post</Link>
-      </div>
-    </article>
+      <p>{post.excerpt}</p>
+      <Link to={`/posts/${post.slug}`} className="small-link">
+        Read this post
+      </Link>
+    </Container>
   )
 }
 

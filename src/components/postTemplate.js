@@ -1,5 +1,4 @@
 import React from "react"
-import { css } from "@emotion/core"
 import Layout from "./layout"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
@@ -22,9 +21,18 @@ export const query = graphql`
 const PostTemplate = ({ data: { mdx: post } }) => {
   return (
     <Layout>
-      <PageTitle title={post.frontmatter.title} />
-      <p>posted by Chris on {post.frontmatter.date}</p>
-      <MDXRenderer>{post.code.body}</MDXRenderer>
+      <article>
+        <PageTitle title={post.frontmatter.title} />
+        <p
+          className="small-link content"
+          style={{ textAlign: "center", marginBottom: "2rem" }}
+        >
+          Posted by Chris on {post.frontmatter.date}
+        </p>
+        <div className="content">
+          <MDXRenderer>{post.code.body}</MDXRenderer>
+        </div>
+      </article>
     </Layout>
   )
 }

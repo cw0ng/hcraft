@@ -22,11 +22,12 @@ const Sidebar = styled.section`
     }
     p:nth-of-type(-n + 2) {
       font-weight: bold;
+      letter-spacing: 0.25px;
     }
     p:nth-of-type(2) {
       padding-bottom: 1.25em;
       border-bottom: ${p => p.theme.greyLine};
-      margin-bottom: 1.25em;
+      margin-bottom: 1.2em;
     }
   }
   a {
@@ -34,6 +35,7 @@ const Sidebar = styled.section`
     color: ${p => p.theme.black};
     &:hover {
       border-bottom: ${p => p.theme.greyLine};
+      color: ${p => p.theme.blue};
     }
   }
   header {
@@ -63,7 +65,7 @@ const Sidebar = styled.section`
 export default () => {
   const { logo } = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "homecraft-logo.png" }) {
+      logo: file(relativePath: { regex: "/homecraft-logo/" }) {
         childImageSharp {
           fixed(width: 125) {
             ...GatsbyImageSharpFixed_withWebp
@@ -76,7 +78,7 @@ export default () => {
   return (
     <Sidebar>
       <header>
-        <Link to="/">
+        <Link to="/" title="Home">
           <Img fixed={logo.childImageSharp.fixed} />
         </Link>
       </header>
