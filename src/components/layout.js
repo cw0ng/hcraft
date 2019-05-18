@@ -57,14 +57,19 @@ const Page = styled.div`
     p {
       margin: 1em 0;
     }
-    .gatsby-resp-image-link {
-      border: none;
-      margin: 2em 0;
-    }
   }
-  .small-text {
+  .gatsby-resp-image-link {
+    border: none;
+    margin-top: 2rem;
+  }
+  .small-text,
+  .gatsby-resp-image-figcaption {
     color: #666;
     font-size: 80%;
+  }
+  .gatsby-resp-image-figcaption {
+    text-align: right;
+    margin-bottom: 2rem;
   }
   .small-link {
     font-size: 80%;

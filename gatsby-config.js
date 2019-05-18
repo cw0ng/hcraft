@@ -22,6 +22,7 @@ module.exports = {
               maxWidth: 1500,
               withWebp: true,
               quality: 80,
+              showCaptions: true,
             },
           },
         ],
