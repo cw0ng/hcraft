@@ -18,6 +18,14 @@ const usePosts = () => {
             frontmatter {
               title
               slug
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 500) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+              imageAlt
             }
           }
         }
@@ -29,6 +37,8 @@ const usePosts = () => {
     title: post.childMdx.frontmatter.title,
     slug: post.childMdx.frontmatter.slug,
     excerpt: post.childMdx.excerpt,
+    image: post.childMdx.frontmatter.image.childImageSharp.fluid,
+    imageAlt: post.childMdx.frontmatter.imageAlt,
   }))
 }
 

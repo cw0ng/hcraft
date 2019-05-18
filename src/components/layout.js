@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { ThemeProvider } from "emotion-theming"
@@ -27,10 +26,10 @@ const Page = styled.div`
   main {
     margin: 2em;
     flex-grow: 2;
-    & > * {
+    /* & > * {
       max-width: 36em;
       margin: 1em auto;
-    }
+    } */
     ul {
       padding: 1em 2em;
     }
@@ -38,47 +37,34 @@ const Page = styled.div`
 `
 
 const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+  <ThemeProvider theme={theme}>
+    <Page>
+      <main>{children}</main>
+      <Sidebar />
+    </Page>
+    <footer
+      css={css`
+        margin: -1.2em 0 0 1.45em;
+        font-size: 66%;
+        text-transform: uppercase;
+        a {
+          text-decoration: none;
+          color: #bbb;
+          &:hover {
+            color: #444;
           }
         }
-      }
-    `}
-    render={data => (
-      <ThemeProvider theme={theme}>
-        <Page>
-          <main>{children}</main>
-          <Sidebar />
-        </Page>
-        <footer
-          css={css`
-            margin: -1em 0 0 1.45em;
-            font-size: 66%;
-            text-transform: uppercase;
-            a {
-              text-decoration: none;
-              color: #ccc;
-              &:hover {
-                color: #aaa;
-              }
-            }
-          `}
-        >
-          <a
-            href="http://www.corinawong.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Site by
-          </a>
-        </footer>
-      </ThemeProvider>
-    )}
-  />
+      `}
+    >
+      <a
+        href="http://www.corinawong.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Site by
+      </a>
+    </footer>
+  </ThemeProvider>
 )
 
 Layout.propTypes = {
