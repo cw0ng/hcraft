@@ -1,14 +1,19 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { PreviewFrontmatter } from "./previewFrontmatter"
 
 const usePortfolio = () => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { sourceInstanceName: { eq: "portfolio" } }) {
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "portfolio" }
+          extension: { eq: "mdx" }
+        }
+      ) {
         nodes {
           childMdx {
             frontmatter {
-              title
-              slug
+              ...PreviewFrontmatter
             }
           }
         }
@@ -19,6 +24,8 @@ const usePortfolio = () => {
   return data.allFile.nodes.map(node => ({
     title: node.childMdx.frontmatter.title,
     slug: node.childMdx.frontmatter.slug,
+    image: node.childMdx.frontmatter.image.childImageSharp.fluid,
+    imageAlt: node.childMdx.frontmatter.imageAlt,
   }))
 }
 

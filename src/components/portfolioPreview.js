@@ -6,7 +6,6 @@ const PortfolioPreview = ({ data }) => {
   return (
     <article
       css={css`
-        background: #eee;
         margin: 1em;
         padding: 1em;
       `}

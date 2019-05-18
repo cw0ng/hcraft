@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { PreviewFrontmatter } from "./previewFrontmatter"
 
 const usePosts = () => {
   const data = useStaticQuery(graphql`
@@ -11,21 +12,10 @@ const usePosts = () => {
         sort: { fields: [relativePath], order: DESC }
       ) {
         nodes {
-          sourceInstanceName
-          relativePath
           childMdx {
             excerpt(pruneLength: 280)
             frontmatter {
-              title
-              slug
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 500) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-              imageAlt
+              ...PreviewFrontmatter
             }
           }
         }
