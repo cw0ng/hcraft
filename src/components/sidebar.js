@@ -14,11 +14,11 @@ const Sidebar = styled.section`
   border-bottom: ${p => p.theme.border};
   border-bottom-left-radius: ${p => p.theme.borderRadius};
   div {
-    padding: 1.3em 1em 1em;
+    padding: 1.25em 1em 0.75em;
     border-bottom: ${p => p.theme.border};
     font-size: 80%;
     p {
-      margin: 0.25em 0;
+      margin: 0.5em 0;
     }
     p:nth-of-type(-n + 2) {
       font-weight: bold;
@@ -37,11 +37,9 @@ const Sidebar = styled.section`
     }
   }
   header {
-    padding: 1em;
+    padding: 1.4em 1em 1em;
     border-bottom: ${p => p.theme.border};
-    div {
-      border: none;
-    }
+    div,
     a:hover {
       border: none;
     }
@@ -68,7 +66,7 @@ export default () => {
       logo: file(relativePath: { eq: "homecraft-logo.png" }) {
         childImageSharp {
           fixed(width: 125) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
