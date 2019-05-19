@@ -15,6 +15,7 @@ const usePortfolio = () => {
           childMdx {
             frontmatter {
               ...PreviewFrontmatter
+              frontPage
             }
           }
         }
@@ -27,6 +28,7 @@ const usePortfolio = () => {
     slug: node.childMdx.frontmatter.slug,
     image: node.childMdx.frontmatter.image.childImageSharp.fluid,
     imageAlt: node.childMdx.frontmatter.imageAlt,
+    frontPage: node.childMdx.frontmatter.frontPage,
   }))
 }
 
