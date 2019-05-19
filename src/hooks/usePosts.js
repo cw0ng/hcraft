@@ -16,6 +16,7 @@ const usePosts = () => {
             excerpt(pruneLength: 280)
             frontmatter {
               ...PreviewFrontmatter
+              tags
             }
           }
         }
@@ -29,6 +30,7 @@ const usePosts = () => {
     excerpt: post.childMdx.excerpt,
     image: post.childMdx.frontmatter.image.childImageSharp.fluid,
     imageAlt: post.childMdx.frontmatter.imageAlt,
+    tags: post.childMdx.frontmatter.tags,
   }))
 }
 

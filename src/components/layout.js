@@ -29,8 +29,8 @@ const Page = styled.div`
   main {
     margin: 2em;
     flex-grow: 2;
-    ul,
-    ol {
+    & > ul,
+    & > ol {
       padding: 0.25em 2em 0;
     }
     a {
@@ -84,6 +84,7 @@ const Page = styled.div`
   }
   .small-link {
     font-size: 80%;
+    line-height: 1.2;
   }
 `
 

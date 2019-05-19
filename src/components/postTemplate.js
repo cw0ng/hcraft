@@ -3,6 +3,7 @@ import Layout from "./layout"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
 import PageTitle from "./pageTitle"
+import TagsList from "./tagsList"
 
 export const query = graphql`
   query($slug: String!) {
@@ -10,6 +11,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
       }
       code {
         body
@@ -19,6 +21,7 @@ export const query = graphql`
 `
 
 const PostTemplate = ({ data: { mdx: post } }) => {
+  console.log(post)
   return (
     <Layout>
       <article>
@@ -29,6 +32,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
         >
           Posted by Chris on {post.frontmatter.date}
         </p>
+        <TagsList tags={post.frontmatter.tags} />
         <div className="content">
           <MDXRenderer>{post.code.body}</MDXRenderer>
         </div>

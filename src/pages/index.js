@@ -26,7 +26,7 @@ const Section = styled.section`
   }
   .featured {
     display: flex;
-    margin: 0 auto 4em;
+    margin: 0 auto 3em;
     max-width: 2000px;
     justify-content: space-between;
     .preview {

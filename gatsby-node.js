@@ -2,7 +2,7 @@
  */
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const result = await graphql(`
+  const pages = await graphql(`
     query {
       allFile(filter: { extension: { eq: "mdx" } }) {
         nodes {
@@ -11,14 +11,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
               title
               slug
+              tags
             }
           }
         }
       }
     }
   `)
-  if (result.errors) {
-    reporter.panic("Failed to create posts:", result.errors)
+  if (pages.errors) {
+    reporter.panic("Failed to create posts:", pages.errors)
   }
 
   const filterByCategory = (category, nodes) =>
@@ -27,7 +28,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       return acc
     }, [])
 
-  const posts = filterByCategory("posts", result.data.allFile.nodes)
+  const posts = filterByCategory("posts", pages.data.allFile.nodes)
 
   posts.forEach(post => {
     actions.createPage({
@@ -39,7 +40,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  const portfolio = filterByCategory("portfolio", result.data.allFile.nodes)
+  // create tags
+  const tagsObj = {}
+  posts.forEach(post =>
+    post.frontmatter.tags.forEach(tag =>
+      tagsObj[tag] ? null : (tagsObj[tag] = true)
+    )
+  )
+  const tagsArray = Object.keys(tagsObj)
+  tagsArray.forEach(tag => {
+    actions.createPage({
+      path: `posts/tags/${tag}`,
+      component: require.resolve("./src/components/tagsTemplate.js"),
+      context: {
+        tag,
+      },
+    })
+  })
+
+  const portfolio = filterByCategory("portfolio", pages.data.allFile.nodes)
 
   portfolio.forEach(node => {
     actions.createPage({
