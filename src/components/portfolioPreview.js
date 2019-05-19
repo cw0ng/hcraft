@@ -1,19 +1,16 @@
 import React from "react"
 import { css } from "@emotion/core"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 const PortfolioPreview = ({ data }) => {
   return (
-    <article
-      css={css`
-        margin: 1em;
-        padding: 1em;
-      `}
-    >
-      <h1>
-        <Link to={`/portfolio/${data.slug}`}> {data.title}</Link>
-      </h1>
-    </article>
+    <section className="preview" css={css``}>
+      <Link to={`/portfolio/${data.slug}`}>
+        <h1 style={{ marginBottom: "0" }}>{data.title}</h1>
+        <Img fluid={data.image} alt={data.imageAlt} />
+      </Link>
+    </section>
   )
 }
 

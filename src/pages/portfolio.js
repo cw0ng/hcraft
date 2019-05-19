@@ -11,9 +11,28 @@ export default () => {
   return (
     <Layout>
       <PageTitle title="Portfolio" />
-      {content.map(item => (
-        <PortfolioPreview key={item.slug} data={item} />
-      ))}
+      <div
+        css={css`
+          max-width: 2000px;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 2em auto -1.75%;
+          justify-content: space-between;
+          section {
+            width: 32%;
+            margin-bottom: 2%;
+            @media (max-width: 1500px) {
+              width: 48%;
+              margin-bottom: 2em;
+            }
+          }
+        `}
+      >
+        {content.map(item => (
+          <PortfolioPreview key={item.slug} data={item} />
+        ))}
+      </div>
     </Layout>
   )
 }

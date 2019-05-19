@@ -14,6 +14,7 @@ const theme = {
   black: "#333",
   grey: "#ccc",
   blue: "#466ee7",
+  width: "700px",
 }
 
 const Page = styled.div`
@@ -45,25 +46,27 @@ const Page = styled.div`
     & > ul,
     & > ol {
       margin: 1em auto;
-      max-width: 700px;
+      max-width: ${p => p.theme.width};
     }
   }
   .content {
-    max-width: 700px;
+    max-width: ${p => p.theme.width};
     margin: 0 auto;
     p {
       margin: 1em 0;
     }
   }
-  .title-link {
-    border-bottom: ${p => p.theme.border};
-    border-width: 3px;
-    color: ${p => p.theme.black};
-    line-height: 1;
-    font-size: 175%;
-    margin-bottom: 1.75rem;
-    &:hover {
+  .preview {
+    a:first-of-type:hover h1 {
       color: ${p => p.theme.blue};
+    }
+    h1 {
+      border-bottom: ${p => p.theme.border};
+      border-width: 3px;
+      color: ${p => p.theme.black};
+      line-height: 1;
+      font-size: 175%;
+      margin-bottom: 0;
     }
   }
   .gatsby-resp-image-link {
