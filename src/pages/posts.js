@@ -16,6 +16,9 @@ export default () => {
           display: flex;
           align-items: flex-start;
           justify-content: space-around;
+          @media (max-width: 1400px) {
+            flex-direction: column-reverse;
+          }
         `}
       >
         <TagsBlock />

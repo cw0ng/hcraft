@@ -30,6 +30,9 @@ const TagsTemplate = ({ pageContext, data }) => {
           display: flex;
           align-items: flex-start;
           justify-content: space-evenly;
+          @media (max-width: 1400px) {
+            flex-direction: column-reverse;
+          }
         `}
       >
         <TagsBlock />

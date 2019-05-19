@@ -29,9 +29,22 @@ const TagsBlock = () => {
         span {
           margin-left: 0.25em;
         }
+        @media (max-width: 1400px) {
+          display: flex;
+          width: auto;
+          margin: 0 auto;
+          border: none;
+          align-content: flex-start;
+          h1 {
+            margin: 0.1em 0.25em 0 0;
+          }
+          li {
+            margin: 0 0.5em;
+          }
+        }
       `}
     >
-      <h1>Tags</h1>
+      <h1>All Tags</h1>
       {tags.map(tag => (
         <li key={tag.value}>
           <Link to={`/posts/tags/${tag.value}`}>{tag.value}</Link>
