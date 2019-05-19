@@ -8,7 +8,7 @@ const Sidebar = styled.section`
   display: flex;
   flex-direction: column;
   min-width: 170px;
-  margin-bottom: 10px;
+  margin-bottom: 60px;
   text-align: center;
   border-left: ${p => p.theme.border};
   border-bottom: ${p => p.theme.border};

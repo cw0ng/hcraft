@@ -95,14 +95,14 @@ const Layout = ({ children }) => (
     </Page>
     <footer
       css={css`
-        margin: -1.2em 0 0 1.45em;
+        margin: -1.4em 0 0 1.45em;
         font-size: 66%;
         text-transform: uppercase;
         a {
           text-decoration: none;
-          color: #bbb;
+          color: #999;
           &:hover {
-            color: #444;
+            color: #333;
           }
         }
       `}
