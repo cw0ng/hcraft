@@ -9,7 +9,7 @@ const PostPreview = ({ post }) => {
     <article
       className="preview"
       css={css`
-        margin: 3.25em auto 4em;
+        margin: 3.5em auto 4em;
         display: flex;
         align-items: center;
         max-width: 1000px;

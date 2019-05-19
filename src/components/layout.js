@@ -29,10 +29,6 @@ const Page = styled.div`
   main {
     margin: 2em;
     flex-grow: 2;
-    & > ul,
-    & > ol {
-      padding: 0.25em 2em 0;
-    }
     a {
       text-decoration: none;
       border-bottom: 1px solid #ccc;
@@ -45,6 +41,7 @@ const Page = styled.div`
     & > p,
     & > ul,
     & > ol {
+      padding: 0.25em 2em 0;
       margin: 1em auto;
       max-width: ${p => p.theme.width};
     }

@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
 const Tags = ({ tags }) => {
-  console.log("len", tags.length)
   return (
     <div
       className="small-text"
@@ -15,11 +14,11 @@ const Tags = ({ tags }) => {
     >
       <p
         css={css`
-          margin-right: 0.2em;
           font-size: 80%;
+          margin-right: 0.2em;
         `}
       >
-        TAGS:
+        TAGS
       </p>
       <ul
         css={css`
@@ -27,13 +26,7 @@ const Tags = ({ tags }) => {
           list-style: none;
           padding: 0;
           li {
-            margin: 0 0.15em;
-            &::after {
-              content: ", ";
-            }
-            &:last-of-type::after {
-              content: "";
-            }
+            margin: 0 0.35em;
           }
           a {
             color: #666 !important;

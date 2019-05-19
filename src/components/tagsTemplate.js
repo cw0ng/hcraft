@@ -4,6 +4,8 @@ import { graphql } from "gatsby"
 import PageTitle from "./pageTitle"
 import PostPreview from "../components/postPreview"
 import { PreviewFrontmatter } from "../hooks/previewFrontmatter"
+import { css } from "@emotion/core"
+import TagsBlock from "./tagsBlock"
 
 export const query = graphql`
   query($tag: [String]!) {
@@ -19,25 +21,37 @@ export const query = graphql`
 `
 
 const TagsTemplate = ({ pageContext, data }) => {
-  console.log(data)
-
   return (
     <Layout>
       <PageTitle title={`posts tagged — ${pageContext.tag}`} />
-      {data.allMdx.nodes.map(post => {
-        console.log("post", post)
-        const postData = {
-          excerpt: post.excerpt,
-          title: post.frontmatter.title,
-          slug: post.frontmatter.slug,
-          excerpt: post.excerpt,
-          image: post.frontmatter.image.childImageSharp.fluid,
-          imageAlt: post.frontmatter.imageAlt,
-          tags: post.frontmatter.tags,
-        }
 
-        return <PostPreview key={post.frontmatter.slug} post={postData} />
-      })}
+      <div
+        css={css`
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-evenly;
+        `}
+      >
+        <TagsBlock />
+        <div
+          css={css`
+            margin-top: -1.75em;
+          `}
+        >
+          {data.allMdx.nodes.map(post => {
+            const postData = {
+              excerpt: post.excerpt,
+              title: post.frontmatter.title,
+              slug: post.frontmatter.slug,
+              image: post.frontmatter.image.childImageSharp.fluid,
+              imageAlt: post.frontmatter.imageAlt,
+              tags: post.frontmatter.tags,
+            }
+
+            return <PostPreview key={post.frontmatter.slug} post={postData} />
+          })}
+        </div>
+      </div>
     </Layout>
   )
 }

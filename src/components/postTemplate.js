@@ -21,21 +21,18 @@ export const query = graphql`
 `
 
 const PostTemplate = ({ data: { mdx: post } }) => {
-  console.log(post)
   return (
     <Layout>
-      <article>
+      <article className="content">
         <PageTitle title={post.frontmatter.title} />
         <p
-          className="small-text content"
-          style={{ textAlign: "center", marginBottom: "2rem" }}
+          className="small-text"
+          style={{ textAlign: "center", margin: "0 0 2rem" }}
         >
           Posted by Chris on {post.frontmatter.date}
         </p>
+        <MDXRenderer>{post.code.body}</MDXRenderer>
         <TagsList tags={post.frontmatter.tags} />
-        <div className="content">
-          <MDXRenderer>{post.code.body}</MDXRenderer>
-        </div>
       </article>
     </Layout>
   )
