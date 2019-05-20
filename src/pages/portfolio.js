@@ -26,6 +26,9 @@ export default () => {
               width: 48%;
               margin-bottom: 2em;
             }
+            @media (max-width: 900px) {
+              width: 100%;
+            }
           }
         `}
       >

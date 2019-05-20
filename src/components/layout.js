@@ -44,6 +44,9 @@ const Page = styled.div`
       padding: 0.25em 2em 0;
       margin: 1em auto;
       max-width: ${p => p.theme.width};
+      @media (max-width: 700px) {
+        padding: 0;
+      }
     }
   }
   .content {
@@ -83,6 +86,15 @@ const Page = styled.div`
     font-size: 80%;
     line-height: 1.2;
   }
+  @media (max-width: 850px) {
+    flex-direction: column-reverse;
+  }
+  @media (max-width: 650px) {
+    border: none;
+    main {
+      margin: 0.5em;
+    }
+  }
 `
 
 const Layout = ({ children }) => (
@@ -102,6 +114,11 @@ const Layout = ({ children }) => (
           &:hover {
             color: #333;
           }
+        }
+        @media (max-width: 650px) {
+          display: flex;
+          justify-content: flex-end;
+          margin-right: 0.5em;
         }
       `}
     >

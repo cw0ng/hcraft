@@ -60,6 +60,62 @@ const Sidebar = styled.section`
       border: none;
     }
   }
+  @media (max-width: 850px) {
+    flex-direction: row;
+    border: none;
+    margin-bottom: 0;
+    width: 100%;
+    justify-content: space-around;
+    align-content: flex-end;
+    div {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    nav {
+      order: 2;
+      margin-top: 0.5em;
+      li {
+        text-align: right;
+        padding: 0;
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+  @media (max-width: 650px) {
+    margin: -1em 0 1em;
+  }
+  @media (max-width: 500px) {
+    div {
+      padding: 0 0 0.45em;
+    }
+    flex-wrap: wrap;
+    margin: 0;
+    header {
+      padding: 0;
+      border: none;
+    }
+    nav {
+      width: 100%;
+      margin-top: 1em;
+      li {
+        text-align: center;
+        border: none;
+        a {
+          color: ${p => p.theme.blue};
+          border-bottom: 1px solid #ccc;
+        }
+      }
+      ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    }
+  }
 `
 
 export default () => {

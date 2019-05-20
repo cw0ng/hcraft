@@ -26,12 +26,20 @@ const Section = styled.section`
   }
   .featured {
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto 3em;
     max-width: 2000px;
     justify-content: space-between;
     .preview {
-      flex: 1;
-      margin: 0.45rem;
+      width: 48%;
+      margin: 1%;
+    }
+    @media (max-width: 700px) {
+      flex-direction: column;
+      .preview {
+        margin: 1em 0;
+        width: 100%;
+      }
     }
   }
   &:last-of-type {

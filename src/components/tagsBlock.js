@@ -31,6 +31,7 @@ const TagsBlock = () => {
         }
         @media (max-width: 1400px) {
           display: flex;
+          flex-wrap: wrap;
           width: auto;
           margin: 0 auto;
           border: none;
