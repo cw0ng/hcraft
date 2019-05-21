@@ -10,10 +10,12 @@ import styled from "@emotion/styled"
 const Section = styled.section`
   & > h1 {
     border-left: ${p => p.theme.border};
-    padding: 0 0.75rem;
-    line-height: 1.25;
+    border-width: 3px;
+    letter-spacing: 0.25px;
+    padding: 0.25em 0.3em 0.1em;
+    line-height: 1;
     margin: 0.5em 0;
-    font-size: 175%;
+    font-size: 125%;
   }
   .preview {
     h1 {

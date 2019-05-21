@@ -1,5 +1,4 @@
 import React from "react"
-import { css } from "@emotion/core"
 import Layout from "./layout"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
