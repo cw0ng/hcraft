@@ -16,6 +16,8 @@ export default () => {
           display: flex;
           align-items: flex-start;
           justify-content: space-around;
+          max-width: 1400px;
+          margin: 0 auto;
           @media (max-width: 1400px) {
             flex-direction: column-reverse;
           }
