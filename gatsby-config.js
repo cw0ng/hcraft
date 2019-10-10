@@ -10,11 +10,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: "gatsby-mdx",
+      resolve: "gatsby-plugin-mdx",
       options: {
         defaultLayouts: {
           default: `${__dirname}/src/components/layout.js`,
         },
+        plugins: [ `gatsby-remark-images` ], 
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images",

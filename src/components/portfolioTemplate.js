@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "./layout"
 import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-mdx"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import PageTitle from "./pageTitle"
 
 export const query = graphql`
@@ -10,9 +10,7 @@ export const query = graphql`
       frontmatter {
         title
       }
-      code {
-        body
-      }
+      body
     }
   }
 `
@@ -22,7 +20,7 @@ const PortfolioTemplate = ({ data: { mdx: data } }) => {
     <Layout>
       <PageTitle title={data.frontmatter.title} />
 
-      <MDXRenderer>{data.code.body}</MDXRenderer>
+      <MDXRenderer>{data.body}</MDXRenderer>
     </Layout>
   )
 }
